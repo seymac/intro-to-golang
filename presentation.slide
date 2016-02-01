@@ -11,7 +11,7 @@ scakmak@thoughtworks.com
 - About Golang
 - Why Golang?
 - Dependency management
-- Fast Compilation
+- Compilation Structure
 - Garbage collection
 - Syntax
 - Composition not Inheritance
@@ -26,6 +26,12 @@ scakmak@thoughtworks.com
 - Written with simplicity motto
 .image go-gopher.png
 
+* About Golang
+
+- Go is not a product of a classical programming language research
+- Focuses on software engineering and real world practices
+- Designed to for next generation applications (distributed and concurrent computing environments)
+
 * Who uses Go?
 
 .link https://github.com/golang/go/wiki/GoUsers GoUsers
@@ -36,14 +42,6 @@ scakmak@thoughtworks.com
 - eBay
 - Facebook
 - Twitter
-
-* Why Go?
-
-- Go is not a product of a classical programming language research
-- Focuses on software engineering and real world practices
-- Next generation applications
-- Makes easier to work at distributed and concurrent environments
-- Networking and web applications
 
 Lets have a look at problems in software development environments
 
@@ -63,3 +61,145 @@ Lets have a look at problems in software development environments
 - Slow builds
 
 .image compiling.png
+
+* Problems in software development environment
+
+- Dependency Management
+
+- Distributed Environment
+
+* Why Go?
+
+- Fast compilation
+- Compiles into one executable file
+- Compiles to native machine code, no need for environments like JVM, CLR
+- Advantages using with application containers (Docker)
+- Simple syntax (only 25 keywords)
+- Garbage collection
+- Makes easier to work at distributed and concurrent environments
+
+* Dependency Management
+
+- Unused dependencies are compile time errors
+- No circular dependency allowed
+- How dependencies are resolved at compile time is important. It makes compilation faster
+
+* Compilation Structure
+
+- Avoids overhead of C-style include files and libraries
+- Plan 9, prohibits include statements in header files
+- For a program containing package A, B, C
+    package A imports package B;
+    package B imports package C;
+- Compilation order; C, B, A
+- Object file of B contains all type informations that affect public interface of B
+- Compiler opens only one file given in import string at A file
+- Less I/O, faster compilation
+- 50 times better than C++ version
+
+* Garbage Collection
+
+- No explicit memory freeing operation (simplicity)
+- Brings some overheads; latency, complexity
+- For java, buf field would require a second level of allocation while go doesn't require(it would be in the same memory block)
+ 			type X struct {
+                a, b, c int
+                buf [256]byte
+            }
+- Less collector points in Go
+
+* Syntax
+
+- Similar syntax to C, C++
+- Only 25 keywords (C99 has 37; C++11 has 84, Java has 50)
+- Types are written after declaration
+        var lines []string
+        func ReadFile(filePath string) ([]string, error)
+- Function
+   	func Sqrt(x T) float64
+- Method
+    func (x T) Sqrt() float64
+
+* Syntax
+
+- It can return multiple values
+       func ReadByte() (c byte, err error)
+        	c, err := ReadByte()
+- No private/public keywords
+    - Lower case refers to private
+    - Upper case refers to public
+- No method overloading
+
+* Packages
+
+- Package paths need to be unique not package names
+    import "encoding/json"
+- Remote packages
+    go get github.com/stretchr/testify
+    import "github.com/stretchr/testify/assert"
+- No Package versioning in language itself
+    Godep (alternative)
+
+* Composition Not Inheritance
+
+- Go does not support inheritance in its type system, but it supports composition of types.
+- No type hierarchy
+- Allows method on any types not only on classes
+- Interfaces
+        type Reader interface {
+            Read(p []byte) (n int, err error)
+        }
+- No need to add implements keyword. Behaviours of an interface is fixed once and it is satisfied by types by having its methods
+- Wrappers (testing)
+        func LoggingReader(r io.Reader) io.Reader
+
+* Concurrency in Go
+
+- Concurrency and multi-threaded programming have a reputation for difficulty.
+- Partly due to complex design in language
+- Go uses Hoare's Communicating Sequential Processes (CSP) model.
+- Encourages safe concurrent programming
+
+* Concurrency in Go
+
+- The motto is, "Don't communicate by sharing memory, share memory by communicating."
+- Goroutines and channels
+    goroutines (execution)
+    channels (communication)
+    select (coordination)
+
+* Go Tools
+
+Go is a tool for managing Go source code.
+
+Usage:
+
+	go command [arguments]
+
+The commands are:
+
+	build       compile packages and dependencies
+	clean       remove object files
+	doc         show documentation for package or symbol
+	env         print Go environment information
+	fix         run go tool fix on packages
+	fmt         run gofmt on package sources
+	generate    generate Go files by processing source
+	get         download and install packages and dependencies
+	install     compile and install packages and dependencies
+	list        list packages
+	run         compile and run Go program
+	test        test packages
+	tool        run specified go tool
+	version     print Go version
+	vet         run go tool vet on packages
+ 
+* Resources
+
+- https://golang.org/doc/effective_go.html
+- https://talks.golang.org/2012/splash.article
+- http://thenewstack.io/a-closer-look-at-golang-from-an-architects-perspective/
+- https://github.com/avelino/awesome-go
+- http://www.thedotpost.com/2015/11/rob-pike-simplicity-is-complicated
+
+* Questions?
