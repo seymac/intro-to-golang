@@ -28,7 +28,7 @@ scakmak@thoughtworks.com
 
 * Who uses Go?
 
-https://github.com/golang/go/wiki/GoUsers
+.link https://github.com/golang/go/wiki/GoUsers GoUsers
 
 - Google
 - Docker
@@ -39,9 +39,27 @@ https://github.com/golang/go/wiki/GoUsers
 
 * Why Go?
 
-- What makes Go different?
-    - Go is not a product of a classical programming language research
-    - Focuses on software engineering and real world practices
-    - Next generation applications
-    - Makes easier to work at distributed and concurrent environments
-    - Networking and web applications
+- Go is not a product of a classical programming language research
+- Focuses on software engineering and real world practices
+- Next generation applications
+- Makes easier to work at distributed and concurrent environments
+- Networking and web applications
+
+Lets have a look at problems in software development environments
+
+* Problems in software development environment
+
+- Huge codebases and big development teams
+
+.image large-code-base.jpg
+
+* Problems in software development environment
+
+- Writing readable  code
+- “Readable means reliable” (Rob Pike)
+
+* Problems in software development environment
+
+- Slow builds
+
+.image compiling.png
