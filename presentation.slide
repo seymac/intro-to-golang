@@ -24,4 +24,24 @@ scakmak@thoughtworks.com
 - Go version 1.0 is released at 2012
 - Compiled, concurrent, garbage-collected, statically typed language
 - Written with simplicity motto
-.image go-gophers.png
+.image go-gopher.png
+
+* Who uses Go?
+
+https://github.com/golang/go/wiki/GoUsers
+
+- Google
+- Docker
+- Dropbox
+- eBay
+- Facebook
+- Twitter
+
+* Why Go?
+
+- What makes Go different?
+    - Go is not a product of a classical programming language research
+    - Focuses on software engineering and real world practices
+    - Next generation applications
+    - Makes easier to work at distributed and concurrent environments
+    - Networking and web applications
