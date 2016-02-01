@@ -1,0 +1,27 @@
+Introduction to Google's Golang
+04 February 2016
+
+Seyma Cakmak
+Software Developer at ThoughtWorks
+https://github.com/seymac
+scakmak@thoughtworks.com
+
+* Outline
+
+- About Golang
+- Why Golang?
+- Dependency management
+- Fast Compilation
+- Garbage collection
+- Syntax
+- Composition not Inheritance
+- Concurrency
+- Go Tools
+
+* About Golang
+
+- Open Source Google Project started at late 2007 by Robert Griesemer, Rob Pike, and Ken Thompson
+- Go version 1.0 is released at 2012
+- Compiled, concurrent, garbage-collected, statically typed language
+- Written with simplicity motto
+.image go-gophers.png
